@@ -1,0 +1,19 @@
+{
+  "name": "Neon Bay: Overdrive",
+  "short_name": "Neon Bay",
+  "description": "Open-World 3D Miami Neon Driving & Story Action Game",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#0A0E18",
+  "theme_color": "#0A0E18",
+  "icons": [
+    {
+      "src": "assets/app-icon-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

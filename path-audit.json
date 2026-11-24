@@ -1,0 +1,19 @@
+{
+  "checkedRefs": [
+    "manifest.json",
+    "assets/app-icon-1024.png",
+    "assets/app-icon-1024.png",
+    "src/ui/hud.css",
+    "vendor/three.min.js",
+    "city-layout.js",
+    "game.js",
+    "models.js",
+    "world3d.js",
+    "polish.js",
+    "city.js",
+    "vehicle-models.js",
+    "neon-app-bundle.js"
+  ],
+  "violations": [],
+  "valid": true
+}

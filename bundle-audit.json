@@ -1,0 +1,82 @@
+{
+  "budgetMB": 15,
+  "totalBytes": 3812222,
+  "totalMB": 3.636,
+  "initialBootBytes": 3811765,
+  "initialBootMB": 3.635,
+  "lazyBytes": 457,
+  "withinBudget": true,
+  "fileCount": 15,
+  "largestFiles": [
+    {
+      "file": "assets/app-icon-1024.png",
+      "bytes": 2173549,
+      "kb": 2122.6,
+      "isLazy": false,
+      "isRuntimeBoot": true
+    },
+    {
+      "file": "vendor/three.min.js",
+      "bytes": 669884,
+      "kb": 654.2,
+      "isLazy": false,
+      "isRuntimeBoot": true
+    },
+    {
+      "file": "neon-app-bundle.js",
+      "bytes": 649840,
+      "kb": 634.6,
+      "isLazy": false,
+      "isRuntimeBoot": true
+    },
+    {
+      "file": "src/ui/hud.css",
+      "bytes": 129900,
+      "kb": 126.9,
+      "isLazy": false,
+      "isRuntimeBoot": true
+    },
+    {
+      "file": "city.js",
+      "bytes": 41471,
+      "kb": 40.5,
+      "isLazy": false,
+      "isRuntimeBoot": true
+    },
+    {
+      "file": "vehicle-models.js",
+      "bytes": 31680,
+      "kb": 30.9,
+      "isLazy": false,
+      "isRuntimeBoot": true
+    },
+    {
+      "file": "game.js",
+      "bytes": 30800,
+      "kb": 30.1,
+      "isLazy": false,
+      "isRuntimeBoot": true
+    },
+    {
+      "file": "world3d.js",
+      "bytes": 27237,
+      "kb": 26.6,
+      "isLazy": false,
+      "isRuntimeBoot": true
+    },
+    {
+      "file": "models.js",
+      "bytes": 17800,
+      "kb": 17.4,
+      "isLazy": false,
+      "isRuntimeBoot": true
+    },
+    {
+      "file": "index.html",
+      "bytes": 17400,
+      "kb": 17,
+      "isLazy": false,
+      "isRuntimeBoot": true
+    }
+  ]
+}

@@ -184,6 +184,8 @@ fs.writeFileSync(path.join(root, 'neon-app-bundle.js'), neonAppBundle, 'utf8');
 // Copy ONLY active V1.0 runtime files into www/
 const runtimeFiles = [
   'index.html',
+  'manifest.json',
+  'assets/app-icon-1024.png',
   'src/ui/hud.css',
   'vendor/three.min.js',
   'vendor/THREE-LICENSE.txt',

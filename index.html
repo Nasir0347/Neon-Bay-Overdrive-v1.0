@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <link rel="icon" href="data:,">
+  <title>NEON BAY: OVERDRIVE</title>
+  <link rel="stylesheet" href="src/ui/hud.css">
+</head>
+<body class="boot-open">
+  <canvas id="game"></canvas>
+  <div id="shade"></div>
+  <div id="weatherFlash"></div>
+
+  <header>
+    <div class="brand">NB<span>NEON BAY</span><small>OVERDRIVE · RICO VEGA</small></div>
+    <div class="district">MIAMI NEON DISTRICT<span>APEX CORE · NEON NIGHT</span></div>
+    <div class="header-right">
+      <button id="hudPhoneBtn" type="button" aria-label="Open Neon OS Smartphone">PHONE (P)</button>
+      <button id="hudMapBtn" class="hud-desktop-extra" type="button" aria-label="Full GPS Map">MAP (M)</button>
+      <button id="hudPhotoBtn" class="hud-desktop-extra" type="button" aria-label="Photo Mode">PHOTO (O)</button>
+      <button id="hudPauseBtn" class="hud-desktop-extra" type="button" aria-label="Pause Game">PAUSE (ESC)</button>
+      <div id="quality">LOW · 60 FPS</div>
+    </div>
+  </header>
+
+  <section id="mission">
+    <div class="eyebrow">NEXT MISSION · ACT 1 · M1</div>
+    <h2 id="objective">NEON MIDNIGHT DROP</h2>
+    <p id="description">Deliver the encrypted ledger south down Oceanic Blvd, park &amp; walk inside Pier 99 Lounge.</p>
+    <p id="tip">Reward: Rs 800 · 1-Click Instant Start</p>
+    <div id="distance">280m</div>
+    <button id="quickStartMissionBtn" type="button" data-i18n="hud.startMission">▶ START M1: NEON MIDNIGHT DROP</button>
+  </section>
+
+  <div id="objectiveBanner" class="neon-glass" role="button" tabindex="0">
+    <span id="objectiveBannerText" class="obj-banner-text" data-i18n="obj.freeRoam">FREE ROAM — DRIVE OR TAP MISSION</span>
+    <button id="objectiveHelpPill" class="obj-help-pill" type="button" aria-label="Live Mission Checklist and Controls Help">?</button>
+  </div>
+
+  <div id="bootPlayOverlay" class="boot-play-overlay">
+    <div class="boot-card neon-glass">
+      <div class="boot-eyebrow"><span class="boot-dot" aria-hidden="true"></span><span data-i18n="boot.eyebrow">OPEN WORLD V1.0 · MIAMI NEON</span></div>
+      <div class="boot-title">NEON BAY<span class="boot-title-accent">: OVERDRIVE</span></div>
+      <div class="boot-sub" data-i18n="boot.tagline">2000M OPEN WORLD · RICO VEGA</div>
+      <div id="bootProgressPill" class="boot-progress-pill">0/20 MISSIONS · ★ 0 · RS 500</div>
+      <div class="boot-actions">
+        <button id="bootMissionBtn" class="boot-btn primary" type="button" data-i18n="boot.startMission">▶ START M1: NEON MIDNIGHT DROP</button>
+        <button id="bootPlayBtn" class="boot-btn secondary" type="button" data-i18n="boot.play">EXPLORE FREE ROAM</button>
+      </div>
+      <button id="bootNewGameBtn" class="boot-new-game-btn" type="button" hidden>NEW GAME · RESET PROGRESS</button>
+      <div class="boot-quick-orbs" role="toolbar" aria-label="Quick Showcase Actions">
+        <button id="bootGarageOrb" class="boot-orb" type="button" aria-label="Garage">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span data-i18n="hud.garage">GARAGE</span>
+        </button>
+        <button id="bootMissionsOrb" class="boot-orb" type="button" aria-label="Missions">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2M9 12h6M9 16h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span data-i18n="hud.missions">MISSIONS</span>
+        </button>
+        <button id="bootSoundOrb" class="boot-orb" type="button" aria-label="Toggle Sound">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span id="bootSoundLbl" data-i18n="hud.sound">SOUND</span>
+        </button>
+        <button id="bootHelpOrb" class="boot-orb" type="button" aria-label="Controls and Help">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9.5 9a2.5 2.5 0 0 1 5 .8c0 1.7-2.5 2.1-2.5 3.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17.2" r="1.1" fill="currentColor"/></svg>
+          <span data-i18n="boot.help">HELP</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <section id="pauseOverlay" class="pause-overlay" role="dialog" aria-modal="true" hidden>
+    <div class="pause-hub neon-glass">
+      <div class="pause-hub-header">
+        <div class="pause-brand-col">
+          <span id="pauseStatusBadge" class="pause-status-badge">FREE ROAM</span>
+          <h2 id="pauseTitle" class="pause-title" data-i18n="pause.title">GAME PAUSED</h2>
+        </div>
+        <div class="pause-header-right">
+          <div class="pause-live-stats">
+            <span id="pauseStatCash" class="pause-stat-chip gold">RS 500</span>
+            <span id="pauseStatMissions" class="pause-stat-chip cyan">0/20 · ★ 0</span>
+            <span id="pauseStatVehicle" class="pause-stat-chip">KURO CIVIC-X</span>
+            <span id="pauseStatDistrict" class="pause-stat-chip mag">APEX CORE</span>
+          </div>
+          <button id="pauseCloseOrb" class="pause-close-orb" type="button" aria-label="Resume Game">✕</button>
+        </div>
+      </div>
+
+      <nav class="pause-tabs" role="tablist" aria-label="Pause Menu Sections">
+        <button type="button" class="pause-tab active" role="tab" aria-selected="true" data-pause-tab="resume" data-i18n="pause.tabResume">RESUME</button>
+        <button type="button" class="pause-tab" role="tab" aria-selected="false" data-pause-tab="map" data-i18n="pause.tabMap">MAP</button>
+        <button type="button" class="pause-tab" role="tab" aria-selected="false" data-pause-tab="missions" data-i18n="pause.tabMissions">MISSIONS</button>
+        <button type="button" class="pause-tab" role="tab" aria-selected="false" data-pause-tab="garage" data-i18n="pause.tabGarage">GARAGE</button>
+        <button type="button" class="pause-tab" role="tab" aria-selected="false" data-pause-tab="help" data-i18n="pause.tabHelp">CONTROLS &amp; HELP</button>
+        <button type="button" class="pause-tab" role="tab" aria-selected="false" data-pause-tab="settings" data-i18n="pause.tabSettings">SETTINGS</button>
+      </nav>
+
+      <div class="pause-tab-body">
+        <div class="pause-panel" data-pause-panel="resume">
+          <div id="pauseActiveObjCard" class="pause-info-card"></div>
+          <div class="pause-actions">
+            <button id="pauseResumeBtn" class="pause-btn primary" type="button" data-i18n="pause.resume">RESUME</button>
+            <button id="pauseRestartBtn" class="pause-btn" type="button" data-i18n="pause.restartMission">RESTART MISSION</button>
+            <button id="pausePhoneBtn" class="pause-btn" type="button" data-i18n="pause.phone">SMARTPHONE</button>
+            <button id="pauseFreeRoamBtn" class="pause-btn" type="button" data-i18n="pause.freeRoam">FREE ROAM</button>
+          </div>
+          <div class="pause-quick-row">
+            <button id="pauseQuickMapBtn" class="pause-btn" type="button" data-i18n="hud.map">MAP</button>
+            <button id="pauseQuickPhotoBtn" class="pause-btn" type="button" data-i18n="hud.photo">PHOTO</button>
+            <button id="pauseQuickFlipBtn" class="pause-btn" type="button" data-i18n="hud.flipCar">FLIP CAR (R)</button>
+          </div>
+        </div>
+
+        <div class="pause-panel" data-pause-panel="map" hidden>
+          <div id="pauseMapCurrentCard" class="pause-info-card"></div>
+          <div id="pauseDistrictGrid" class="pause-district-grid"></div>
+          <button id="pauseOpenFullMapBtn" class="pause-btn primary" type="button" data-i18n="pause.openFullMap">OPEN INTERACTIVE FULL GPS MAP</button>
+        </div>
+
+        <div class="pause-panel" data-pause-panel="missions" hidden>
+          <div id="pauseMissionsProgress" class="pause-info-card"></div>
+          <div id="pauseMissionsList" class="pause-missions-list"></div>
+        </div>
+
+        <div class="pause-panel" data-pause-panel="garage" hidden>
+          <div id="pauseGarageHero" class="pause-info-card"></div>
+          <div id="pauseGarageGrid" class="pause-garage-grid"></div>
+          <button id="pauseOpenGaragePhoneBtn" class="pause-btn primary" type="button" data-i18n="pause.openGarage">OPEN FULL GARAGE &amp; CUSTOMIZER</button>
+        </div>
+
+        <div class="pause-panel" data-pause-panel="help" hidden>
+          <div class="pause-help-grid">
+            <div class="pause-help-card">
+              <h3 data-i18n="pause.controlsMobile">MOBILE &amp; TABLET CIRCULAR CONTROLS</h3>
+              <ul class="pause-help-list">
+                <li><strong>LEFT JOYSTICK / BTNS</strong> — Steer car 360° or walk freely inside buildings.</li>
+                <li><strong>GAS / BRAKE</strong> — Accelerate, brake, or double-hold Brake for Reverse gear.</li>
+                <li><strong>DRIFT / JUMP</strong> — Slide through Neon Bay corners (or Jump on foot).</li>
+                <li><strong>NOS RING</strong> — Tap Nitro boost; cyan ring shows live charge level.</li>
+                <li><strong>EXIT / TOOLS</strong> — Hop out of cars to enter Pier 99 &amp; Titan Bank, or tap TOOLS for 12 shortcuts.</li>
+              </ul>
+            </div>
+            <div class="pause-help-card">
+              <h3 data-i18n="pause.controlsPc">PC KEYBOARD CONTROLS</h3>
+              <ul class="pause-help-list">
+                <li><strong>WASD / ARROWS</strong> — Drive, steer &amp; walk smoothly.</li>
+                <li><strong>SHIFT / X · SPACE</strong> — Activate Nitro boost · Handbrake Drift / Jump.</li>
+                <li><strong>E / F</strong> — Enter or Exit nearby vehicles &amp; walk into interiors.</li>
+                <li><strong>TAB / I / P · M</strong> — Open Neon Phone OS · Toggle Full GPS Map.</li>
+                <li><strong>R · C · T · N · Q</strong> — Flip Car · Camera · Radio · Lights · Graphics Quality.</li>
+              </ul>
+            </div>
+            <div class="pause-help-card accent">
+              <h3 data-i18n="pause.missionTips">FORGET-PROOF MISSION TIPS</h3>
+              <ul class="pause-help-list">
+                <li><strong>GOLD / CYAN WAYPOINTS</strong> — Follow the dashed GPS route line on the Radar &amp; glowing road arrows.</li>
+                <li><strong>WALK-IN MISSIONS</strong> — When prompted <em>EXIT CAR</em> near Titan Bank or Pier 99, hop out and walk inside the glowing door!</li>
+                <li><strong>STUCK OR FLIPPED?</strong> — Hit <strong>FLIP (R)</strong> or <strong>EXIT</strong> orb anytime; you can replay or resume missions from the Phone or Pause Hub.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="pause-panel" data-pause-panel="settings" hidden>
+          <div class="pause-section-lbl" data-i18n="pause.steering">CONTROLS, AUDIO &amp; GRAPHICS</div>
+          <div class="pause-settings-row">
+            <button id="pauseSteerBtn" class="pause-btn" type="button">STEER: STICK</button>
+            <button id="pauseMuteBtn" class="pause-btn" type="button">SOUND: ON</button>
+            <button id="pauseGfxBtn" class="pause-btn" type="button">GFX: LOW</button>
+            <button id="pauseOpacityBtn" class="pause-btn" type="button">HUD: GLASS</button>
+          </div>
+          <div class="pause-section-lbl" data-i18n="pause.radioStation">RADIO STATION</div>
+          <div id="pauseRadioGrid" class="pause-pill-grid"></div>
+          <div class="pause-section-lbl" data-i18n="languageLabel">LANGUAGE</div>
+          <div id="pauseLangGrid" class="pause-pill-grid"></div>
+        </div>
+      </div>
+
+      <div class="pause-hub-footer">
+        <span class="pause-footer-hint">ESC / TAP OUTSIDE TO RESUME</span>
+        <button id="pauseFooterResumeBtn" class="pause-btn primary pause-footer-resume" type="button" data-i18n="pause.resume">RESUME</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="missionHelpDrawer" class="mission-help-drawer" role="dialog" aria-modal="true" hidden>
+    <div class="mission-help-card neon-glass">
+      <div class="mission-help-header">
+        <div class="mission-help-title-col">
+          <span id="missionHelpBadge" class="mission-help-badge">LIVE GUIDE</span>
+          <h2 id="missionHelpTitle" class="mission-help-title" data-i18n="help.title">LIVE MISSION GUIDE</h2>
+        </div>
+        <div class="mission-help-head-right">
+          <span id="missionHelpMeta" class="mission-help-meta">FREE ROAM</span>
+          <button id="missionHelpCloseBtn" class="pause-close-orb" type="button" aria-label="Close Mission Help">✕</button>
+        </div>
+      </div>
+      <div id="missionHelpNowBox" class="mission-help-now">
+        <span class="mission-help-sec-lbl" data-i18n="help.nowDo">CURRENT OBJECTIVE</span>
+        <strong id="missionHelpDirective">FREE ROAM — DRIVE OR TAP MISSION</strong>
+        <p id="missionHelpHook" class="mission-help-hook"></p>
+      </div>
+      <div class="mission-help-section">
+        <div class="mission-help-sec-lbl" data-i18n="help.checklist">STEP-BY-STEP CHECKLIST</div>
+        <ol id="missionHelpSteps" class="mission-help-steps"></ol>
+      </div>
+      <div class="mission-help-controls-box">
+        <div class="mission-help-sec-lbl gold" data-i18n="help.controlsHint">BUTTONS TO PRESS NOW</div>
+        <p id="missionHelpControlTip" class="mission-help-ctrl-tip"></p>
+      </div>
+      <div class="mission-help-actions">
+        <button id="missionHelpResumeBtn" class="pause-btn primary" type="button" data-i18n="help.gotIt">GOT IT · RESUME</button>
+        <button id="missionHelpMapBtn" class="pause-btn" type="button" data-i18n="help.showMap">FULL GPS MAP</button>
+        <button id="missionHelpFlipBtn" class="pause-btn" type="button" data-i18n="help.flipCar">FLIP CAR</button>
+        <button id="missionHelpPrimaryActionBtn" class="pause-btn accent" type="button">START MISSION</button>
+      </div>
+    </div>
+  </section>
+
+  <div id="toast"></div>
+  <div id="hint"></div>
+  <button id="flipCarBtn" type="button" hidden aria-label="Flip vehicle" title="Flip / Unstuck Vehicle (R)">FLIP (R)</button>
+
+  <aside id="mapWrap">
+    <canvas id="map" width="180" height="180"></canvas>
+    <span>APEX CORE · MAP (M)</span>
+  </aside>
+
+  <div id="telemetry" class="radial-gauge">
+    <svg class="speed-gauge-svg" viewBox="0 0 120 120" aria-hidden="true">
+      <defs>
+        <linearGradient id="spdArcGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#00F0FF"/>
+          <stop offset="62%" stop-color="#FF007F"/>
+          <stop offset="100%" stop-color="#FFD700"/>
+        </linearGradient>
+      </defs>
+      <circle class="gauge-bg-ring" cx="60" cy="60" r="50"/>
+      <circle id="speedArcFill" class="gauge-speed-arc" cx="60" cy="60" r="50"/>
+      <circle class="gauge-nos-track" cx="60" cy="60" r="42"/>
+      <circle id="nosArcFill" class="gauge-nos-arc" cx="60" cy="60" r="42"/>
+    </svg>
+    <div class="gauge-center">
+      <span id="gearPill">G1</span>
+      <strong id="speed">0</strong>
+      <small id="unit">KM/H</small>
+    </div>
+    <span id="mode">KURO CIVIC-X · G1</span>
+    <div id="nosWrap"><div id="nosFill"></div></div>
+  </div>
+
+  <footer>
+    <span><b>WASD / ↑↓←→</b> Drive / Steer</span>
+    <span><b>SHIFT / X</b> Nitro (NOS)</span>
+    <span><b>SPACE</b> Handbrake Drift</span>
+    <span><b>TAB / I / P</b> Smartphone</span>
+    <span><b>M</b> Full GPS Map</span>
+    <span><b>O</b> Photo Mode</span>
+    <span><b>T</b> Radio Station</span>
+    <span><b>N</b> Headlights</span>
+    <span><b>V</b> Horn</span>
+    <span><b>R</b> Flip Car</span>
+    <span><b>E</b> Enter / Exit</span>
+    <span><b>C</b> Camera</span>
+    <span><b>Q</b> Graphics Quality</span>
+  </footer>
+
+  <div id="status">RICO VEGA · APEX CORE · Rs 500</div>
+
+  <script src="vendor/three.min.js"></script>
+  <script src="city-layout.js"></script>
+  <script src="game.js"></script>
+  <script src="models.js"></script>
+  <script src="world3d.js"></script>
+  <script src="polish.js"></script>
+  <script src="city.js"></script>
+  <script src="vehicle-models.js"></script>
+  <script src="neon-app-bundle.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+{
+  "passed": 11,
+  "errors": [],
+  "baseline": {
+    "sceneChildren": 265,
+    "totalSceneNodes": 1712,
+    "geometries": 499,
+    "textures": 49,
+    "trafficPoolSize": 24,
+    "totalProps": 56,
+    "cruiserPoolSize": 4,
+    "swatPoolSize": 2,
+    "rbPoolSize": 3
+  },
+  "cycle1": {
+    "sceneChildren": 265,
+    "totalSceneNodes": 1712,
+    "geometries": 954,
+    "textures": 115,
+    "trafficPoolSize": 24,
+    "totalProps": 56,
+    "cruiserPoolSize": 4,
+    "swatPoolSize": 2,
+    "rbPoolSize": 3
+  },
+  "cycle2": {
+    "sceneChildren": 265,
+    "totalSceneNodes": 1712,
+    "geometries": 973,
+    "textures": 118,
+    "trafficPoolSize": 24,
+    "totalProps": 56,
+    "cruiserPoolSize": 4,
+    "swatPoolSize": 2,
+    "rbPoolSize": 3
+  },
+  "cycle3": {
+    "sceneChildren": 265,
+    "totalSceneNodes": 1712,
+    "geometries": 973,
+    "textures": 118,
+    "trafficPoolSize": 24,
+    "totalProps": 56,
+    "cruiserPoolSize": 4,
+    "swatPoolSize": 2,
+    "rbPoolSize": 3
+  },
+  "checks": [
+    "PoliceManager escalates cleanly across 1-5★ (Roadblocks at 3★, SWAT + Aerial Searchlight at 4★, City Lockdown at 5★)",
+    "LOS broken cooldown clears 5★ -> 0★ and deactivates all pursuit cruisers/SWAT/roadblocks/helicopter cleanly",
+    "2nd 0 -> 5★ escalation reuses fixed police pool cleanly",
+    "Traffic pool spawned 65 & despawned 57 cars within fixed 24-slot pool (8 instanced visible)",
+    "Breakable lamppost, barricade & fire hydrant break on impact and trigger hydrant water geyser FX",
+    "Progressive vehicle damage transitions clean -> white_smoke -> black_smoke -> fire cleanly",
+    "5s Fire countdown ejects player safely onto dry land without softlocking",
+    "Scene graph node count remained strictly constant (265/1712 -> 265/1712 -> 265/1712 -> 265/1712)",
+    "GPU geometries/textures remained strictly constant across steady-state cycles (973/118 -> 973/118)",
+    "All pooled arrays maintained exact fixed capacities",
+    "Zero runtime/console errors ()"
+  ]
+}

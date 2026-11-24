@@ -1,0 +1,76 @@
+name: Build iOS IPA (Neon Bay Overdrive)
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build-ios-ipa:
+    runs-on: macos-15
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build web bundle & generate/sync Capacitor iOS
+        run: |
+          npm run build
+          if [ ! -d "ios" ]; then
+            npx cap add ios
+          fi
+          npx cap sync ios
+
+      - name: Configure iOS Info.plist (Landscape + Portrait, Fullscreen)
+        run: |
+          PLIST="ios/App/App/Info.plist"
+          /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName 'Neon Bay: Overdrive'" "$PLIST" || \
+            /usr/libexec/PlistBuddy -c "Add :CFBundleDisplayName string 'Neon Bay: Overdrive'" "$PLIST"
+          /usr/libexec/PlistBuddy -c "Set :UIStatusBarHidden true" "$PLIST" || \
+            /usr/libexec/PlistBuddy -c "Add :UIStatusBarHidden bool true" "$PLIST"
+          /usr/libexec/PlistBuddy -c "Set :UIViewControllerBasedStatusBarAppearance false" "$PLIST" || \
+            /usr/libexec/PlistBuddy -c "Add :UIViewControllerBasedStatusBarAppearance bool false" "$PLIST"
+
+      - name: Build Unsigned Release App (.app) with Xcode
+        run: |
+          set -o pipefail
+          cd ios/App
+          if [ -d "App.xcworkspace" ]; then
+            TARGET_FLAG="-workspace App.xcworkspace"
+          else
+            TARGET_FLAG="-project App.xcodeproj"
+          fi
+          xcodebuild $TARGET_FLAG \
+            -scheme App \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            DEVELOPMENT_TEAM="" \
+            clean build
+
+      - name: Package .app into Neon-Bay-Overdrive-v1.0.ipa
+        run: |
+          mkdir -p ipa_out/Payload
+          cp -R ios/App/build/Build/Products/Release-iphoneos/App.app ipa_out/Payload/
+          cd ipa_out
+          zip -qry ../Neon-Bay-Overdrive-v1.0.ipa Payload
+          ls -lh ../Neon-Bay-Overdrive-v1.0.ipa
+
+      - name: Upload iOS .ipa Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Neon-Bay-Overdrive-v1.0-iOS-IPA
+          path: Neon-Bay-Overdrive-v1.0.ipa
+          retention-days: 30

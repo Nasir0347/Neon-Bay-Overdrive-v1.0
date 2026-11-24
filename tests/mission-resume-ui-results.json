@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "checks": [
+    "360x640 clear",
+    "360x640 glass",
+    "360x640 solid",
+    "360x640 pause badge",
+    "844x390 clear",
+    "844x390 glass",
+    "844x390 solid",
+    "844x390 pause badge",
+    "768x1024 clear",
+    "768x1024 glass",
+    "768x1024 solid",
+    "768x1024 pause badge",
+    "1280x720 clear",
+    "1280x720 glass",
+    "1280x720 solid",
+    "1280x720 pause badge",
+    "reload restores mission checkpoint, timer and position",
+    "completed mission never auto-resumes"
+  ],
+  "errors": []
+}

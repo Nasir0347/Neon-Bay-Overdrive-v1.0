@@ -1,0 +1,132 @@
+{
+  "passed": 6,
+  "errorsWww": [],
+  "errorsDist": [],
+  "checks": [
+    "Static build audits passed (10 relative paths, www=1.544 MB, dist=1.439 MB obfuscated=9)",
+    "AdManager executes strict pause -> mute -> reward (+Rs 750) -> unmute/resume & every-2-missions interstitial",
+    "All 6 i18n locales (en, es, pt, fr, de, ar RTL) swap cleanly in live browser",
+    "Language persistence (ar RTL) & 1200x630 PNG Viral Score Card verified across reload",
+    "www/index.html reported 0 console/page errors ()",
+    "Obfuscated dist/index.html boots all 20 missions & 6 locales with 0 errors ()"
+  ],
+  "pathAudit": {
+    "checkedRefs": [
+      "src/ui/hud.css",
+      "vendor/three.min.js",
+      "city-layout.js",
+      "game.js",
+      "models.js",
+      "world3d.js",
+      "polish.js",
+      "city.js",
+      "vehicle-models.js",
+      "neon-app-bundle.js"
+    ],
+    "violations": [],
+    "valid": true
+  },
+  "bundleAudit": {
+    "budgetMB": 15,
+    "totalBytes": 1619489,
+    "totalMB": 1.544,
+    "initialBootBytes": 1619032,
+    "initialBootMB": 1.544,
+    "lazyBytes": 457,
+    "withinBudget": true,
+    "fileCount": 13,
+    "largestFiles": [
+      {
+        "file": "vendor/three.min.js",
+        "bytes": 669884,
+        "kb": 654.2,
+        "isLazy": false,
+        "isRuntimeBoot": true
+      },
+      {
+        "file": "neon-app-bundle.js",
+        "bytes": 649373,
+        "kb": 634.2,
+        "isLazy": false,
+        "isRuntimeBoot": true
+      },
+      {
+        "file": "src/ui/hud.css",
+        "bytes": 122809,
+        "kb": 119.9,
+        "isLazy": false,
+        "isRuntimeBoot": true
+      },
+      {
+        "file": "city.js",
+        "bytes": 35214,
+        "kb": 34.4,
+        "isLazy": false,
+        "isRuntimeBoot": true
+      },
+      {
+        "file": "vehicle-models.js",
+        "bytes": 31680,
+        "kb": 30.9,
+        "isLazy": false,
+        "isRuntimeBoot": true
+      },
+      {
+        "file": "game.js",
+        "bytes": 30800,
+        "kb": 30.1,
+        "isLazy": false,
+        "isRuntimeBoot": true
+      },
+      {
+        "file": "world3d.js",
+        "bytes": 22930,
+        "kb": 22.4,
+        "isLazy": false,
+        "isRuntimeBoot": true
+      },
+      {
+        "file": "models.js",
+        "bytes": 17642,
+        "kb": 17.2,
+        "isLazy": false,
+        "isRuntimeBoot": true
+      },
+      {
+        "file": "index.html",
+        "bytes": 16989,
+        "kb": 16.6,
+        "isLazy": false,
+        "isRuntimeBoot": true
+      },
+      {
+        "file": "polish.js",
+        "bytes": 11484,
+        "kb": 11.2,
+        "isLazy": false,
+        "isRuntimeBoot": true
+      }
+    ]
+  },
+  "distAudit": {
+    "budgetMB": 15,
+    "totalBytes": 1509304,
+    "totalMB": 1.439,
+    "withinBudget": true,
+    "obfuscatedCount": 9,
+    "syntaxVerified": true,
+    "domainLock": {
+      "enabled": true,
+      "strict": false,
+      "allowedHosts": [
+        "localhost",
+        "127.0.0.1",
+        "crazygames.com",
+        "poki.com",
+        "poki-gdn.com",
+        "neonbayoverdrive.com"
+      ]
+    },
+    "fileCount": 15
+  }
+}

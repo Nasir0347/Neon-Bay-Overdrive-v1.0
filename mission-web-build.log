@@ -1,0 +1,5 @@
+
+> neon-bay-overdrive@1.0.0 build
+> node scripts/build-web.cjs
+
+Bundled NEON BAY: OVERDRIVE V1.0 in www/ (13 files, initialBoot=1.523 MB, total=1.523 MB < 15 MB, paths=10 OK) & dist/ (9 obfuscated JS, 1.421 MB, 0 legacy strings, syntaxVerified=true).

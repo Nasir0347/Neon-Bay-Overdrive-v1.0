@@ -1,0 +1,89 @@
+
+> neon-bay-overdrive@1.0.0 test:core
+> node --test tests/core-foundation.test.mjs tests/driving-controls.test.mjs tests/ui-hud-minimap.test.mjs tests/world-living.test.mjs tests/garage-phone-photo.test.mjs tests/missions-engine.test.mjs tests/campaign-complete.test.mjs tests/audio-performance.test.mjs tests/release-ship.test.mjs tests/mission-resume.test.mjs
+
+▶ AudioManager Engine RPM, Radio Stations & Visibility Auto-Mute
+  ✔ computes continuous finite engine RPM pitch scaling across gears and nitro (2.2125ms)
+  ✔ switches 3 radio stations, creates 0 oscillators when muted, and suspends/resumes cleanly on visibilitychange (16.551ms)
+✔ AudioManager Engine RPM, Radio Stations & Visibility Auto-Mute (21.0192ms)
+▶ PerformanceManager (Quality Toggle, Half-Res Bloom, .dispose(), Instancing & Bundle Guard)
+  ✔ switches Low <-> Medium <-> High with exact w/2 x h/2 bloom targets & SaveManager persistence (10.5456ms)
+  ✔ explicitly disposes swapped vehicle geometry/material/textures without touching shared assets & estimates VRAM < 150 MB (1.8203ms)
+  ✔ batches repeated props into 1 InstancedMesh draw call & contains 0 TODO/banned terms & stays < 15 MB (4.6695ms)
+✔ PerformanceManager (Quality Toggle, Half-Res Bloom, .dispose(), Instancing & Bundle Guard) (17.6366ms)
+▶ Complete 20-Mission Schema & Zero-NaN Validation (Acts 1-4)
+  ✔ verifies all 20 IDs (M1-M20), 4 acts, finite values (0 NaN), valid coordinates & Garage vehicles (5.2766ms)
+✔ Complete 20-Mission Schema & Zero-NaN Validation (Acts 1-4) (7.4013ms)
+▶ Act 3 (M11-M15) & Act 4 (M16-M20) Mechanics + Mission 20 Unlock Persistence
+  ✔ M11 Barricade Breaker, M12 Skyline Ramp Jump (180+ km/h slow-mo), M13 Gold Convoy (3 pursuers) (23.5555ms)
+  ✔ M14 Blackout Stealth searchlights & M15 Double Cross intercept (4.8604ms)
+  ✔ M16 4-Star Lockdown survival, M17 mid-mission vehicle switch, M18 60 km/h Bomb, M19 Boss Limo (59.147ms)
+  ✔ M20 Golden Sunrise Finale unlocks C11 + Mirage Valley (City 2) bridge & persists across SaveManager reload (3.2729ms)
+✔ Act 3 (M11-M15) & Act 4 (M16-M20) Mechanics + Mission 20 Unlock Persistence (92.102ms)
+▶ Extra Retention Layers (Daily Missions, Challenge Modes, 3 Easter Eggs & Side Hustles)
+  ✔ DailyMissions generates 3 unique finite tasks (0 NaN) and unlocks 7-Day Streak skin on day 7 (27.7281ms)
+  ✔ ChallengeModes validates & runs 1% Ramp, Reverse Race, and 1-HP Survival cleanly (4.8607ms)
+  ✔ SideHustles runs 3 Hidden Easter Eggs, VIP Taxi, Police Vigilante (C12) & VIP Test-Drive (5.4975ms)
+✔ Extra Retention Layers (Daily Missions, Challenge Modes, 3 Easter Eggs & Side Hustles) (38.6973ms)
+✔ EventBus: on, emit order, off & unsubscribe closure (4.3736ms)
+✔ EventBus: once executes only once, survives re-entrant emit & pre-fire off (0.5589ms)
+✔ EventBus: mid-emit unsubscribe & listener error isolation (0.5912ms)
+✔ SaveManager: defaults, save/load round-trip & full field persistence (7.0375ms)
+✔ SaveManager: recovers cleanly from corrupt JSON, non-object JSON & malformed fields (1.5325ms)
+✔ SaveManager: clamps negative cash to 0 & activates in-memory fallback when localStorage is blocked (2.9841ms)
+✔ GameState: valid full lifecycle across all 6 states + EventBus notifications (1.3659ms)
+✔ GameState: invalid transition guards reject cleanly without mutating state (1.5975ms)
+✔ InputManager: normalizes Keyboard, simulated Touch, and Gamepad into identical steering/throttle/brake values (9.8338ms)
+✔ InputManager: 1-tap AudioContext.resume() unlock fires on first gesture and detaches cleanly (8.4164ms)
+✔ DrivingJuice: FOV 60->80 boost, micro impact shake, 0.3x 1.5s slow-mo, ParticlePool & Flip Car reset (3.2716ms)
+▶ Garage (12 Cars + 4 Bikes), Smartphone (4 Apps + 4 Cheats) & Photo Mode Suite
+  ✔ defines all 16 vehicles at exact copyright-safe spec scales/stats and persists customization in SaveManager (12.3021ms)
+  ✔ Smartphone mounts 4 working apps and executes all 4 cheat codes accurately (94.3376ms)
+  ✔ PhotoMode enters PHOTO_MODE, pauses physics, hides HUD, orbits camera, exports PNG watermark & exits cleanly (16.4875ms)
+✔ Garage (12 Cars + 4 Bikes), Smartphone (4 Apps + 4 Cheats) & Photo Mode Suite (125.9864ms)
+✔ Mission snapshot preserves partial mechanics and clears on completion/abort (20.5136ms)
+✔ Old/corrupt saves and unavailable storage are safe (1.655ms)
+▶ Missions Config Schema (Act 1-4 M1-M20)
+  ✔ defines Act 1 & Act 2 plus full 20 story missions cleanly with valid coordinates, timers, dialogues, and vehicles (4.4836ms)
+  ✔ contains zero TODO placeholders and zero copyrighted brand names in src/missions/ (5.4385ms)
+✔ Missions Config Schema (Act 1-4 M1-M20) (12.328ms)
+▶ Mission 1 (Neon Midnight Drop): start -> fail -> retry -> complete
+  ✔ runs M1 full lifecycle including late 15s cop twist, failure retry reset, star rating & SaveManager persistence (23.4994ms)
+✔ Mission 1 (Neon Midnight Drop): start -> fail -> retry -> complete (23.8457ms)
+▶ Mission 9 (NO BRAKES!): start -> fail -> retry -> complete
+  ✔ disables brakes during active mission, restores on fail, re-arms on retry, and completes upon stopping in Palm Strip Beach Sand (3.6906ms)
+✔ Mission 9 (NO BRAKES!): start -> fail -> retry -> complete (4.1211ms)
+▶ Act 1 & Act 2 Unique Mechanics + Silent 3-Fail Difficulty Assist
+  ✔ handles M5 Ambush red flash, reverse escape & extraction to Vega Garage (4.0753ms)
+  ✔ handles M6 Hijack the Hacker: 4 rams reduce HP bar to 0 -> switch car -> deliver to garage (2.6066ms)
+  ✔ handles M10 Zero-Scratch Heist condition threshold (<80% immediate fail, >=80% success) (1.9351ms)
+  ✔ activates Silent 3-Fail Difficulty Assist (+10s timer & 0.85 police aggression) on 4th attempt (10.8244ms)
+✔ Act 1 & Act 2 Unique Mechanics + Silent 3-Fail Difficulty Assist (20.164ms)
+▶ AdManager Portal SDKs, Mandatory Mute/Pause/Resume & Every-2-Missions Interstitials
+  ✔ enforces pause -> mute -> reward -> resume on CrazyGames/Poki/Capacitor and rejects reward on adError (16.8976ms)
+  ✔ detects PokiSDK and Capacitor AdMob platforms cleanly and hides external links in iframe (3.4607ms)
+✔ AdManager Portal SDKs, Mandatory Mute/Pause/Resume & Every-2-Missions Interstitials (22.5852ms)
+▶ Multi-Language I18n (6 Locales + RTL), Viral ShareCard, Config & Audit
+  ✔ validates all 6 locales cleanly with zero missing keys and switches LTR/RTL + SaveManager persistence (5.8597ms)
+  ✔ generates 1200x630 Viral Score Card & satisfies ship security/brand/TODO audits (65.8933ms)
+✔ Multi-Language I18n (6 Locales + RTL), Viral ShareCard, Config & Audit (72.2029ms)
+▶ Section 6 HUD, Responsiveness & Minimap Suite
+  ✔ resolves all 4 Neon Bay districts and widens FOV cleanly in portrait mode (65.6471ms)
+  ✔ HUD mounts glass elements, pulses cash/wanted/speed-lines, and fires District/Radio toasts with blur toggle (5.8349ms)
+  ✔ Minimap rotates world coordinates by heading, renders districts/route/police, and toggles Full Map via KeyM and tap (10.8594ms)
+✔ Section 6 HUD, Responsiveness & Minimap Suite (85.2946ms)
+▶ Step 5 Living Open-World Systems Unit Suite
+  ✔ PoliceManager escalates 0 -> 5 -> 0 (LOS escape), enforces fixed pool bounds, rubber-banding & PIT maneuvers (9.0428ms)
+  ✔ TrafficManager spawns & despawns across districts within fixed object pool bounds (19.678ms)
+  ✔ TrafficManager OBB passing never false-brakes in adjacent lane (2.3m center dist) and separates cleanly on real overlap (1.0808ms)
+  ✔ DestructiblesManager breaks lampposts, barricades & hydrants cleanly and respawns when far away (4.1692ms)
+  ✔ VehicleDamageController transitions clean -> white -> black -> fire (5s) -> destroyed eject/fail (1.2788ms)
+✔ Step 5 Living Open-World Systems Unit Suite (37.523ms)
+ℹ tests 49
+ℹ suites 14
+ℹ pass 49
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1419.2638

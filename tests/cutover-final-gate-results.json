@@ -1,0 +1,20 @@
+{
+  "passed": 12,
+  "distFileCount": 16,
+  "unusedChunks": [],
+  "legacyMatches": [],
+  "checks": [
+    "dist/ contains 0 unused chunks (16 total files verified)",
+    "dist/ contains 0 legacy mission/city strings ()",
+    "www/index.html: Boots directly into NEON BAY: OVERDRIVE (Rico Vega in C01 Kuro Civic-X) with Glassmorphism HUD & Smartphone and 0 legacy menus",
+    "www/index.html: Mission 1 (Pier 99 Drop) starts with Rico Vega dialogue, live countdown timer & checkpoint #1",
+    "www/index.html: Mission 1 tracks checkpoints (0 -> 1 -> 2 -> Done), awards 3★, and saves completion",
+    "www/index.html: All 20 missions, 16 vehicles (12 Cars + 4 Bikes), 4 Cheat Codes, 5★ Police & Radio verified",
+    "www/index.html: 0 console/page errors ()",
+    "dist/index.html: Boots directly into NEON BAY: OVERDRIVE (Rico Vega in C01 Kuro Civic-X) with Glassmorphism HUD & Smartphone and 0 legacy menus",
+    "dist/index.html: Mission 1 (Pier 99 Drop) starts with Rico Vega dialogue, live countdown timer & checkpoint #1",
+    "dist/index.html: Mission 1 tracks checkpoints (0 -> 1 -> 2 -> Done), awards 3★, and saves completion",
+    "dist/index.html: All 20 missions, 16 vehicles (12 Cars + 4 Bikes), 4 Cheat Codes, 5★ Police & Radio verified",
+    "dist/index.html: 0 console/page errors ()"
+  ]
+}

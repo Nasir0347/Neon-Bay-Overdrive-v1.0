@@ -1,0 +1,37 @@
+{
+  "appId": "com.neonbay.overdrive",
+  "appName": "Neon Bay: Overdrive",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "android": {
+    "backgroundColor": "#0a0e18",
+    "allowMixedContent": false,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": false
+  },
+  "ios": {
+    "backgroundColor": "#0a0e18",
+    "contentInset": "always",
+    "preferredContentMode": "mobile",
+    "limitsNavigationsToAppBoundDomains": true,
+    "scrollEnabled": false
+  },
+  "server": {
+    "androidScheme": "https",
+    "iosScheme": "https"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 400,
+      "backgroundColor": "#0a0e18",
+      "showSpinner": false
+    },
+    "StatusBar": {
+      "overlaysWebView": true,
+      "style": "DARK"
+    },
+    "AdMob": {
+      "initializeForTesting": false
+    }
+  }
+}

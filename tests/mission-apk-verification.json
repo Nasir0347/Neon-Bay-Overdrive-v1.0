@@ -1,0 +1,25 @@
+{
+  "verifiedAt": "2026-11-24T18:03:32.9643585+05:00",
+  "apk": "E:\\GTA 6\\releases\\Neon-Bay-Overdrive-v1.0.apk",
+  "bytes": 4772862,
+  "sha256": "304D5B6F784C67EAE24A1404A82B2CBB3F7D76860169DE0620213084A276D2DD",
+  "matchingWebFiles": 15,
+  "files": [
+    "bundle-audit.json",
+    "city-layout.js",
+    "city.js",
+    "game.js",
+    "index.html",
+    "models.js",
+    "neon-app-bundle.js",
+    "path-audit.json",
+    "polish.js",
+    "vehicle-models.js",
+    "world3d.js",
+    "chunks/neon-lazy-pack.js",
+    "src/ui/hud.css",
+    "vendor/THREE-LICENSE.txt",
+    "vendor/three.min.js"
+  ],
+  "physicalDeviceTested": false
+}

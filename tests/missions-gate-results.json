@@ -1,0 +1,20 @@
+{
+  "passed": 14,
+  "errors": [],
+  "checks": [
+    "All 20 Story Missions, Daily Generator (3), Challenge Modes (3) & City 2 Bridge registered; overlays hidden while idle",
+    "Smartphone Missions tab renders M1 through M20, Daily tasks & Challenges",
+    "M1 starts in MISSION_ACTIVE with 2-line radio dialogue banner visible",
+    "M1 failure displays Fail Summary Modal cleanly",
+    "M1 retry resets timer (~60s, got 59.90s) and hides modal",
+    "M1 completes to Win Summary Modal with 3-Star rating and persists in NeonSave",
+    "M9 disables Space/Down braking in live physics (v=24.5 m/s, brakingNow=false)",
+    "M9 start -> fail -> retry -> Palm Strip Beach Sand stop completed cleanly (v=1.00 m/s)",
+    "Free Roam button exits cleanly back to FREE_ROAM",
+    "M17 switches player mid-mission from B01 Bike to C10 Hypercar cleanly",
+    "M20 Golden Sunrise Finale unlocks C11 Vortex Apex Gold + Mirage Valley (City 2) bridge",
+    "Constant scene node count preserved (265 === 265)",
+    "M20 C11 + Mirage Valley unlock persists cleanly across full browser reload",
+    "Zero console/page errors ()"
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "passed": 7,
+  "errors": [],
+  "checks": [
+    "Production bundle audit passes (1.548 MB initial / 1.549 MB total < 15 MB)",
+    "AudioManager streams 3 Radio Stations, scales RPM pitch & suspends/resumes cleanly on visibilitychange ({\"stations\":[\"99.5 Neon FM\",\"104.2 Drift Radio\",\"88.0 Bay Beats\",\"OFF\"],\"rpmHigh\":322.69,\"mutedState\":{\"hiddenMuted\":true,\"suspended\":true,\"ctxState\":\"suspended\",\"masterGain\":1,\"crashBlocked\":false},\"resumedState\":{\"hiddenMuted\":false,\"suspended\":false,\"ctxState\":\"running\",\"masterGain\":1}})",
+    "Low <-> Medium <-> High Half-Res Bloom switches cleanly with 0 WebGL errors (640x360)",
+    "High Graphics Quality & Half-Res Bloom persist cleanly across page reload",
+    "Vehicle swap .dispose() cleans all GPU geos/textures cleanly (556/50 -> 556/50, VRAM 28.01 MB < 150 MB)",
+    "InstancedMesh batching active (2 Neon batches / 96 instances, 49 total scene InstancedMeshes) & LazyChunkLoader verified",
+    "Zero console/WebGL/page errors ()"
+  ],
+  "bundleAudit": {
+    "budgetMB": 15,
+    "totalBytes": 1624115,
+    "totalMB": 1.549,
+    "initialBootBytes": 1623658,
+    "initialBootMB": 1.548,
+    "lazyBytes": 457,
+    "withinBudget": true,
+    "fileCount": 13,
+    "largestFiles": [
+      {
+        "file": "vendor/three.min.js",
+        "bytes": 669884,
+        "kb": 654.2,
+        "isLazy": false,
+        "isRuntimeBoot": true
+      },
+      {
+        "file": "neon-app-bundle.js",
+        "bytes": 649373,
+        "kb": 634.2,
+        "isLazy": false,
+        "isRuntimeBoot": true
+      },
+      {
+        "file": "src/ui/hud.css",
+        "bytes": 122809,
+        "kb": 119.9,
+        "isLazy": false,
+        "isRuntimeBoot": true
+      },
+      {
+        "file": "city.js",
+        "bytes": 36752,
+        "kb": 35.9,
+        "isLazy": false,
+        "isRuntimeBoot": true
+      },
+      {
+        "file": "vehicle-models.js",
+        "bytes": 31680,
+        "kb": 30.9,
+        "isLazy": false,
+        "isRuntimeBoot": true
+      },
+      {
+        "file": "game.js",
+        "bytes": 30800,
+        "kb": 30.1,
+        "isLazy": false,
+        "isRuntimeBoot": true
+      },
+      {
+        "file": "world3d.js",
+        "bytes": 26018,
+        "kb": 25.4,
+        "isLazy": false,
+        "isRuntimeBoot": true
+      },
+      {
+        "file": "models.js",
+        "bytes": 17642,
+        "kb": 17.2,
+        "isLazy": false,
+        "isRuntimeBoot": true
+      },
+      {
+        "file": "index.html",
+        "bytes": 16989,
+        "kb": 16.6,
+        "isLazy": false,
+        "isRuntimeBoot": true
+      },
+      {
+        "file": "polish.js",
+        "bytes": 11484,
+        "kb": 11.2,
+        "isLazy": false,
+        "isRuntimeBoot": true
+      }
+    ]
+  }
+}

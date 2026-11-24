@@ -1,0 +1,31 @@
+{
+  "name": "neon-bay-overdrive",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NEON BAY: OVERDRIVE — Open-World 3D WebGL Driving & Story Action Game (V1.0)",
+  "scripts": {
+    "build": "node scripts/build-web.cjs",
+    "build:web": "node scripts/build-web.cjs",
+    "build:prod": "node scripts/build-web.cjs",
+    "android:sync": "npm run build:web && cap sync android",
+    "ios:sync": "npm run build:web && cap sync ios",
+    "test": "node tests/cutover-final-gate.cjs",
+    "test:cutover": "node tests/cutover-final-gate.cjs",
+    "test:core": "node --test tests/core-foundation.test.mjs tests/driving-controls.test.mjs tests/ui-hud-minimap.test.mjs tests/world-living.test.mjs tests/garage-phone-photo.test.mjs tests/missions-engine.test.mjs tests/campaign-complete.test.mjs tests/audio-performance.test.mjs tests/release-ship.test.mjs tests/mission-resume.test.mjs",
+    "test:release": "node tests/release-gate.cjs",
+    "test:perf": "node tests/audio-perf-gate.cjs",
+    "test:missions": "node tests/missions-gate.cjs",
+    "test:ui": "node tests/ui-responsive-gate.cjs",
+    "test:world": "node tests/world-living-gate.cjs",
+    "test:features": "node tests/garage-phone-photo-gate.cjs"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.6.2",
+    "playwright": "1.65.1"
+  },
+  "dependencies": {
+    "@capacitor/android": "8.6.2",
+    "@capacitor/core": "8.6.2",
+    "@capacitor/ios": "8.6.2"
+  }
+}

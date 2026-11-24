@@ -1,0 +1,26 @@
+{
+  "passed": 17,
+  "errors": [],
+  "normalPeak": 1.1338693199999998,
+  "superPeak": 7.392600000000006,
+  "lunarAirFrames": 200,
+  "checks": [
+    "Tab opens slide-up Neon OS Smartphone",
+    "Missions app lists campaign contracts",
+    "Music Radio app tunes station & displays radio toast",
+    "Garage defines 12 Cars + 4 Bikes (16 total)",
+    "Live Garage customization updates Paint, Neon Underglow & Turbo Lv 2",
+    "Garage customization persists across page reload in SaveManager",
+    "Cheat 9999 Super Jump boosts peak height (1.13m -> 7.39m)",
+    "Cheat 5555 Moon Gravity lowers gravity to 0.35x (200 air frames)",
+    "4-Star Wanted Chase armed prior to cheat 0000",
+    "Cheat 7777 unlocks & spawns Vortex Apex Gold (C11) with gold neon & Turbo Lv 3",
+    "Cheat 0000 clears all Police Wanted Stars immediately",
+    "KeyO enters PHOTO_MODE state and pauses physics",
+    "Photo Mode hides gameplay HUD and reveals camera controls bar",
+    "Photo Mode freezes simulation while unlocking free orbit camera",
+    "Photo Mode exports non-blank PNG snapshot with NEON BAY: OVERDRIVE watermark",
+    "Exiting Photo Mode restores FREE_ROAM, shows HUD & resumes live physics cleanly",
+    "Zero console/page errors ()"
+  ]
+}

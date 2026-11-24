@@ -30,7 +30,7 @@ jobs:
           fi
           npx cap sync ios
 
-      - name: Configure iOS Info.plist (Landscape + Portrait, Fullscreen)
+      - name: Configure iOS Info.plist & App Icon (1024x1024)
         run: |
           PLIST="ios/App/App/Info.plist"
           /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName 'Neon Bay: Overdrive'" "$PLIST" || \
@@ -39,6 +39,27 @@ jobs:
             /usr/libexec/PlistBuddy -c "Add :UIStatusBarHidden bool true" "$PLIST"
           /usr/libexec/PlistBuddy -c "Set :UIViewControllerBasedStatusBarAppearance false" "$PLIST" || \
             /usr/libexec/PlistBuddy -c "Add :UIViewControllerBasedStatusBarAppearance bool false" "$PLIST"
+
+          ICON_DIR="ios/App/App/Assets.xcassets/AppIcon.appiconset"
+          mkdir -p "$ICON_DIR"
+          cp assets/app-icon-1024.png "$ICON_DIR/AppIcon-512@2x.png"
+          cat > "$ICON_DIR/Contents.json" << 'EOF'
+          {
+            "images": [
+              {
+                "filename": "AppIcon-512@2x.png",
+                "idiom": "universal",
+                "platform": "ios",
+                "size": "1024x1024"
+              }
+            ],
+            "info": {
+              "author": "xcode",
+              "version": 1
+            }
+          }
+          EOF
+          ls -lh "$ICON_DIR/AppIcon-512@2x.png"
 
       - name: Build Unsigned Release App (.app) with Xcode
         run: |
